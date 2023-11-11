@@ -22,7 +22,7 @@ function MovieDetails() {
 
   return (
     <div>
-      <GoBackButton />
+      <GoBackButton from={location.state.from} />
       {movieDetails && (
         <MoviePoster
           img={movieDetails.poster_path}
