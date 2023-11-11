@@ -7,6 +7,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom';
 function MovieDetails() {
   const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
+  const [from, setFrom] = useState();
 
   useEffect(() => {
     async function fetchDetails() {
@@ -14,6 +15,7 @@ function MovieDetails() {
         Number(location.pathname.slice(8, 14))
       );
       setMovieDetails({ ...data });
+      setFrom(location.state.from);
     }
 
     fetchDetails();
@@ -22,7 +24,7 @@ function MovieDetails() {
 
   return (
     <div>
-      <GoBackButton from={location.state.from} />
+      <GoBackButton from={from} />
       {movieDetails && (
         <MoviePoster
           img={movieDetails.poster_path}
