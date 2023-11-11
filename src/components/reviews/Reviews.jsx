@@ -9,9 +9,7 @@ function Reviews() {
 
   useEffect(() => {
     async function fetchReviews() {
-      const reviews = await getMovieReviews(
-        Number(location.pathname.slice(8, 14))
-      );
+      const reviews = await getMovieReviews(location.state.movieId);
       setReviews([...reviews]);
     }
     fetchReviews();

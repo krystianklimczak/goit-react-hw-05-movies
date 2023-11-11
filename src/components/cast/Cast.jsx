@@ -9,7 +9,7 @@ function Cast() {
 
   useEffect(() => {
     async function fetchCast() {
-      const cast = await getMovieCast(Number(location.pathname.slice(8, 14)));
+      const cast = await getMovieCast(location.state.movieId);
       setCast([...cast]);
     }
     fetchCast();

@@ -10,7 +10,10 @@ function MovieList(props) {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+            <Link
+              to={`/movies/${movie.id}`}
+              state={{ from: location, movieId: movie.id }}
+            >
               {movie.title}
             </Link>
           </li>

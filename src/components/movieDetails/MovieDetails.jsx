@@ -8,12 +8,11 @@ function MovieDetails() {
   const location = useLocation();
   const [movieDetails, setMovieDetails] = useState(null);
   const [from, setFrom] = useState();
+  const [movieId] = useState(location.state.movieId);
 
   useEffect(() => {
     async function fetchDetails() {
-      const data = await getMovieDetails(
-        Number(location.pathname.slice(8, 14))
-      );
+      const data = await getMovieDetails(movieId);
       setMovieDetails({ ...data });
       setFrom(location.state.from);
     }
@@ -37,10 +36,14 @@ function MovieDetails() {
       )}
       <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={{ movieId: movieId }}>
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" state={{ movieId: movieId }}>
+            Reviews
+          </Link>
         </li>
       </ul>
       <Outlet />
