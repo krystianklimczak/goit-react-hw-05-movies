@@ -1,28 +1,38 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import css from './MovieCast.module.css';
+import SingleCast from 'components/singleCast/SingleCast';
 
 function MovieCast(props) {
   const { cast } = props;
 
   return (
     <div>
-      <ul>
+      <ul className={css.castList}>
         {cast.map(actor => (
-          <li key={actor.id}>
-            {actor.profile_path && (
-              <img
-                src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
-                alt={actor.name}
-                width={132}
-                height={199}
-              />
-            )}
-            <h3>{actor.name}</h3>
-            <p>Character: {actor.character}</p>
-          </li>
+          <SingleCast
+            id={actor.id}
+            profile_path={actor.profile_path}
+            name={actor.name}
+            character={actor.character}
+            key={actor.id}
+          />
         ))}
       </ul>
     </div>
   );
 }
+
+MovieCast.propTypes = {
+  cast: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      profile_path: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      character: PropTypes.string.isRequired,
+    })
+  ),
+};
 
 export default MovieCast;

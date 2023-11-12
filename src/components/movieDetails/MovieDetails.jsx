@@ -1,8 +1,12 @@
-import { getMovieDetails } from 'api/getMovieDetails';
-import GoBackButton from 'components/goBackButton/GoBackButton';
-import MoviePoster from 'components/moviePoster/MoviePoster';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
+
+import Loader from 'components/loader/Loader';
+import { getMovieDetails } from 'api/getMovieDetails';
+import MoviePoster from 'components/moviePoster/MoviePoster';
+import GoBackButton from 'components/goBackButton/GoBackButton';
+
+import css from './MovieDetails.module.css';
 
 function MovieDetails() {
   const location = useLocation();
@@ -22,7 +26,7 @@ function MovieDetails() {
   }, []);
 
   return (
-    <div>
+    <div className={css.movieDetails}>
       <GoBackButton from={from} />
       {movieDetails && (
         <MoviePoster
@@ -34,19 +38,29 @@ function MovieDetails() {
           year={Number(movieDetails.release_date.slice(0, 4))}
         />
       )}
-      <ul>
+      <ul className={css.movieList}>
         <li>
-          <Link to="cast" state={{ movieId: movieId }}>
+          <Link
+            className={css.movieList__link}
+            to="cast"
+            state={{ movieId: movieId }}
+          >
             Cast
           </Link>
         </li>
         <li>
-          <Link to="reviews" state={{ movieId: movieId }}>
+          <Link
+            className={css.movieList__link}
+            to="reviews"
+            state={{ movieId: movieId }}
+          >
             Reviews
           </Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }

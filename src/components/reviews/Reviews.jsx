@@ -1,7 +1,8 @@
-import { getMovieReviews } from 'api/getMovieReviews';
-import MovieReviews from 'components/movieReviews/MovieReviews';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
+import { getMovieReviews } from 'api/getMovieReviews';
+import MovieReviews from 'components/movieReviews/MovieReviews';
 
 function Reviews() {
   const location = useLocation();
@@ -20,25 +21,3 @@ function Reviews() {
 }
 
 export default Reviews;
-
-// import { getMovieCast } from 'api/getMovieCast';
-// import MovieCast from 'components/movieCast/MovieCast';
-// import React, { useEffect, useState } from 'react';
-// import { useLocation } from 'react-router-dom';
-
-// function Cast() {
-//   const location = useLocation();
-//   const [cast, setCast] = useState([]);
-
-//   useEffect(() => {
-//     async function fetchCast() {
-//       const cast = await getMovieCast(Number(location.pathname.slice(8, 14)));
-//       setCast([...cast]);
-//     }
-//     fetchCast();
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//   }, []);
-//   return <div>{cast && <MovieCast cast={cast} />}</div>;
-// }
-
-// export default Cast;

@@ -1,7 +1,8 @@
+import { useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+
 import { getMovieCast } from 'api/getMovieCast';
 import MovieCast from 'components/movieCast/MovieCast';
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 
 function Cast() {
   const location = useLocation();
