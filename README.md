@@ -1,6 +1,6 @@
 **Przeczytaj w innym języku: [polski](README.pl.md).**
 
-# PhonebookApp
+# MoviesApp
 
 Simple movies app created to allow you to search for new movies. Choose from 20
 most trending movies or simply paste movie title that you are looking for. App
