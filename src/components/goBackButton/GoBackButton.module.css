@@ -1,0 +1,14 @@
+.goBack {
+  color: white;
+  background-color: #04aa6d;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  border: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.goBack:hover {
+  background-color: #3e8e41;
+}

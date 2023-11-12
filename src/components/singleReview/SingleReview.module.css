@@ -1,0 +1,21 @@
+.reviewsItem {
+  background-color: #04aa6d;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.reviewsItem__author {
+  background-color: #3e8e41;
+  width: fit-content;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+}
+
+.reviewsItem__content {
+  background-color: #2c692d;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}

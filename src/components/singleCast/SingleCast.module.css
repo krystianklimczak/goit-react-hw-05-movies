@@ -1,0 +1,11 @@
+.castItem {
+  border: 1px solid #04aa6d;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 132px;
+  background-color: #04aa6d;
+  color: white;
+}

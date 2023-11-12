@@ -1,0 +1,41 @@
+.poster {
+  display: flex;
+  gap: 1rem;
+}
+
+.posterDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.posterTitle {
+  background-color: #3e8e41;
+  padding: 0.5rem;
+  width: fit-content;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+}
+.posterTitle__span {
+  color: #04aa6d;
+}
+
+.posterInfo {
+  background-color: #3e8e41;
+  padding: 0.5rem;
+  width: fit-content;
+  border-radius: 0.5rem;
+  color: white;
+  font-weight: 500;
+}
+.posterList {
+  list-style: none;
+  text-align: start;
+  margin: 0;
+  padding: 0;
+}
+.posterGenres {
+  margin: 0;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
