@@ -1,6 +1,9 @@
-import { getTrendingMovies } from 'api/getTrendingMovies';
-import MovieList from 'components/movieList/MovieList';
 import React, { useEffect, useState } from 'react';
+
+import MovieList from 'components/movieList/MovieList';
+import { getTrendingMovies } from 'api/getTrendingMovies';
+
+import css from './Home.module.css';
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -16,7 +19,7 @@ function Home() {
 
   return (
     <div>
-      Trending today
+      <h1 className={css.header}>Trending today</h1>
       {movies && <MovieList movies={movies} />}
     </div>
   );

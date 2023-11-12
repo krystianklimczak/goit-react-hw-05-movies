@@ -1,7 +1,10 @@
-import { getMovieByQuery } from 'api/getMovieByQuery';
-import MovieList from 'components/movieList/MovieList';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
+import { getMovieByQuery } from 'api/getMovieByQuery';
+import MovieList from 'components/movieList/MovieList';
+
+import css from './Movies.module.css';
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -33,9 +36,15 @@ function Movies() {
   }, [searchParams]);
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input name="query" />
-        <button type="sumbit">Search</button>
+      <form onSubmit={handleSubmit} className={css.form}>
+        <input
+          name="query"
+          className={css.input}
+          placeholder="Please fill movie name"
+        />
+        <button type="sumbit" className={css.button}>
+          Search
+        </button>
       </form>
       {movies && <MovieList movies={movies} />}
     </div>
